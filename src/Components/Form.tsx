@@ -1,14 +1,13 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import {Button, Container, FormGroup, InputLabel, MenuItem, Paper, Select, TextField} from "@mui/material";
+import {Button, Container, FormGroup, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import styles from './Form.module.scss';
 export const Form = () => {
 
-
-  return <Box component="main" sx={{ p: 3, mt: 5 }}>
-      <Paper square elevation={3}>
+    return <Box component="main">
           <Container maxWidth={"md"}>
-              <form>
+              <form className={styles.form}>
                   <FormGroup>
                       <InputLabel>What to do?</InputLabel>
                       <TextField />
@@ -34,6 +33,5 @@ export const Form = () => {
                   </Button>
               </form>
           </Container>
-      </Paper>
   </Box>
 }

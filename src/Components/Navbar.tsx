@@ -13,7 +13,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-
 const drawerWidth = 240;
 const navItems = ['Home', 'Contact'];
 
@@ -41,7 +40,6 @@ export default function Navbar() {
             </List>
         </Box>
     );
-
 
     return (
         <Box sx={{ display: 'flex' }}>

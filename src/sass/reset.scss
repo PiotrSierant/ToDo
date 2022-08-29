@@ -1,3 +1,4 @@
+@import "variables";
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -6,6 +7,8 @@
 }
 html, body {
   height: 100%;
+  background-color: $background;
+  color: $text;
 }
 html:focus-within {
   scroll-behavior: smooth; /* przewijanie strony */
