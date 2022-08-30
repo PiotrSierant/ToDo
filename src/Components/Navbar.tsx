@@ -27,7 +27,7 @@ export default function Navbar() {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                Piotr Sierant
             </Typography>
             <Divider />
             <List>
@@ -46,7 +46,7 @@ export default function Navbar() {
         <Box sx={{ display: 'flex' }}>
             <AppBar component="nav">
                 <Toolbar>
-                    <Container maxWidth={"md"} sx={{display: 'flex'}}>
+                    <Container maxWidth={"md"} sx={{display: 'flex', p: '0'}}>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"

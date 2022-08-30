@@ -49,12 +49,12 @@ export const FormDetails = ({addItemFn}: {addItemFn: Function}) => {
         </FormGroup>
         <Button
             variant="outlined"
-            endIcon={<AddOutlinedIcon />}
-            sx={{mt: 3}}
+            startIcon={<AddOutlinedIcon />}
+            sx={{ mt: 3, width: '200px'}}
             type='submit'
             onClick={handleSubmit}
         >
-            Add
+            Add task
         </Button>
     </form>
 }
