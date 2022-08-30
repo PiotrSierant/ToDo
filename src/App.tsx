@@ -1,9 +1,12 @@
 import React from 'react';
-import './sass/main.scss';
-
+import Navbar from './Components/Navbar'
+import {Form} from "./Components/Form";
 function App() {
   return (
-    <h1>działa</h1>
+      <>
+        <Navbar />
+        <Form />
+      </>
   );
 }
 
