@@ -1,10 +1,14 @@
 import React from 'react';
 import {Item} from "../models/Item";
-import {Checkbox, ListItem, ListItemIcon, ListItemText, ListSubheader} from "@mui/material";
+import {Checkbox, IconButton, ListItem, ListItemIcon, ListItemText, ListSubheader} from "@mui/material";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export const ItemDetail = ({item, toggleDoneFn}: {item: Item, toggleDoneFn: Function}) => {
+export const ItemDetail = ({item, toggleDoneFn, handleDeleteItemFn}: {item: Item, toggleDoneFn: Function, handleDeleteItemFn: Function}) => {
     const handleDone = () => {
         toggleDoneFn(item.id);
+    }
+    const handleDelete = () => {
+        handleDeleteItemFn(item.id)
     }
     return (
         <ListItem
@@ -27,6 +31,9 @@ export const ItemDetail = ({item, toggleDoneFn}: {item: Item, toggleDoneFn: Func
             <ListItemText>
                 {item.name}
             </ListItemText>
+            <IconButton edge="end" aria-label="delete" color="error" onClick={handleDelete}>
+                <DeleteForeverIcon />
+            </IconButton>
         </ListItem>
     )
 }
