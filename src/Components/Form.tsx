@@ -1,37 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Box from "@mui/material/Box";
-import {Button, Container, FormGroup, InputLabel, MenuItem, Select, TextField} from "@mui/material";
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import styles from './Form.module.scss';
+import {Container} from "@mui/material";
+import {FormDetails} from "./FormDetails";
+import {Item} from '../models/Item';
+
 export const Form = () => {
+    const [items, setItems] = useState<Item[]>([]);
+
+    const addItem = (item: Item) => {
+        setItems([...items, item]);
+    }
 
     return <Box component="main">
           <Container maxWidth={"md"}>
-              <form className={styles.form}>
-                  <FormGroup>
-                      <InputLabel>What to do?</InputLabel>
-                      <TextField />
-                  </FormGroup>
-                  <FormGroup>
-                      <InputLabel>When?</InputLabel>
-                      <Select>
-                          <MenuItem value={'mo'}>Monday</MenuItem>
-                          <MenuItem value={'tu'}>Tuesday</MenuItem>
-                          <MenuItem value={'we'}>Wednesday</MenuItem>
-                          <MenuItem value={'th'}>Thursday</MenuItem>
-                          <MenuItem value={'fr'}>Friday</MenuItem>
-                          <MenuItem value={'sa'}>Saturday</MenuItem>
-                          <MenuItem value={'su'}>Sunday</MenuItem>
-                      </Select>
-                  </FormGroup>
-                  <Button
-                      variant="outlined"
-                      endIcon={<AddOutlinedIcon />}
-                      sx={{mt: 3}}
-                  >
-                      Add
-                  </Button>
-              </form>
+              <FormDetails addItemFn={addItem} />
           </Container>
   </Box>
 }
