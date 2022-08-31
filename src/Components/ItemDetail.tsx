@@ -1,14 +1,14 @@
 import React from 'react';
-import {Item} from "../models/Item";
-import {Checkbox, IconButton, ListItem, ListItemIcon, ListItemText, ListSubheader} from "@mui/material";
+import { Item } from "../models/Item";
+import { Checkbox, IconButton, ListItem, ListItemIcon, ListItemText, ListSubheader } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-export const ItemDetail = ({item, toggleDoneFn, handleDeleteItemFn}: {item: Item, toggleDoneFn: Function, handleDeleteItemFn: Function}) => {
+export const ItemDetail = ({item, handleToggleDone, handleDeleteItem}: {item: Item, handleToggleDone: Function, handleDeleteItem: Function}) => {
     const handleDone = () => {
-        toggleDoneFn(item.id);
+        handleToggleDone(item.id);
     }
     const handleDelete = () => {
-        handleDeleteItemFn(item.id)
+        handleDeleteItem(item.id)
     }
     return (
         <ListItem

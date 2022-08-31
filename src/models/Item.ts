@@ -1,5 +1,5 @@
-import {v4 as uuid} from 'uuid';
-export class Item{
+import { v4 as uuid } from 'uuid';
+export class Item {
 
     id: string = uuid();
     name: string;

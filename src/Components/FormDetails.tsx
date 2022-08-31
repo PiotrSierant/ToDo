@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from "./Form.module.scss";
-import {Alert, AlertTitle, Button, FormGroup, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import { Item } from "../models/Item";
+import { Alert, AlertTitle, Button, FormGroup, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import {Item} from "../models/Item";
 
-export const FormDetails = ({addItemFn}: {addItemFn: Function}) => {
+export const FormDetails = ({handleAddItem}: {handleAddItem: Function}) => {
 
     const [item, setItem] = useState('');
     const [select, setSelect] = useState('Monday');
@@ -19,7 +19,7 @@ export const FormDetails = ({addItemFn}: {addItemFn: Function}) => {
         setError(temErrors)
         if(temErrors.length === 0) {
             const newItem = new Item(item, select)
-            addItemFn(newItem);
+            handleAddItem(newItem);
             setItem('');
             setSelect('Monday');
         }

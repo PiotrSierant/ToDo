@@ -1,20 +1,19 @@
 import React from 'react';
-import Box from "@mui/material/Box";
-import {Button, Container} from "@mui/material";
-import {FormDetails} from "./FormDetails";
-import {Item} from '../models/Item';
-import {ItemsList} from "./ItemsList";
-import {useLocalStorage} from "../hooks/useLocalStorage";
+import { Item } from '../models/Item';
+import { FormDetails } from "./FormDetails";
+import { ItemsList } from "./ItemsList";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { Button, Container, Box } from "@mui/material";
 
 export const Form = () => {
     const [items, setItems] = useLocalStorage('itemsList', [])
 
-    const addItem = (item: Item) => {
+    const handleAddItem = (item: Item) => {
         setItems([...items, item]);
     }
 
-    const toggleDone = (id: string) => {
-        const updateItems = items.map( (item: Item) => {
+    const handleToggleDone = (id: string) => {
+        const updateItems = items.filter( (item: Item) => {
             if(item.id === id) {
                 item.done = !item.done
             }
@@ -28,7 +27,7 @@ export const Form = () => {
     }
 
     const handleDeleteItem = (id: string) => {
-        const updateItems = items.map( (item: Item) => {
+        const updateItems = items.filter( (item: Item) => {
             if(item.id === id) {
                 items.pop(item);
             }
@@ -39,8 +38,8 @@ export const Form = () => {
 
     return <Box component="main">
           <Container maxWidth={"md"}>
-              <FormDetails addItemFn={addItem} />
-              <ItemsList items={items} toggleDoneFn={toggleDone} handleDeleteItemFn={handleDeleteItem}/>
+              <FormDetails handleAddItem={handleAddItem} />
+              <ItemsList items={items} handleToggleDone={handleToggleDone} handleDeleteItem={handleDeleteItem}/>
               {items.length > 0 && <Button
                   variant="outlined"
                   color="error"
